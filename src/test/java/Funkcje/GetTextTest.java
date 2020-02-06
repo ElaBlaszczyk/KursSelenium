@@ -1,6 +1,5 @@
-package funkcje;
+package Funkcje;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -22,7 +21,7 @@ public class GetTextTest {
 
     @Before
 
-    public void setUp() throws Exception {
+    public void setUp() {
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux64/chromedriver");
 
@@ -33,7 +32,7 @@ public class GetTextTest {
 
 
     @Test
-    public void isEnable() throws Exception {
+    public void isEnable() {
        /* driver.get("https://pl.wikipedia.org/");
         WebElement search = driver.findElement(By.id("searchInput"));
         if (search.isEnabled()) {

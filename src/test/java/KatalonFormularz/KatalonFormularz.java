@@ -1,16 +1,13 @@
-package przyklad3;
+package KatalonFormularz;
 
         import java.util.List;
-        import java.util.regex.Pattern;
         import java.util.concurrent.TimeUnit;
         import org.junit .*;
         import static org.junit.Assert .*;
-        import static org.hamcrest.CoreMatchers .*;
+
         import org.openqa.selenium .*;
         import org.openqa.selenium.chrome.ChromeDriver;
-        import org.openqa.selenium.firefox.FirefoxDriver;
-        import org.openqa.selenium.support.ui.Select;
-       // import org.w3c.dom.stylesheets.LinkStyle;
+// import org.w3c.dom.stylesheets.LinkStyle;
 
 public class KatalonFormularz {
 
@@ -19,7 +16,7 @@ public class KatalonFormularz {
 
     @Before
 
-    public void setUp() throws Exception {
+    public void setUp()  {
 
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux64/chromedriver");
         driver = new ChromeDriver();
@@ -27,8 +24,7 @@ public class KatalonFormularz {
     }
 
     @Test
-    public void testKatalonFormularz() throws Exception {
-
+    public void testKatalonFormularz()  {
 
 
         driver.get("https://katalon-test.s3.amazonaws.com/demo-aut/dist/html/form.html");
@@ -43,6 +39,7 @@ public class KatalonFormularz {
             fail();
         }
 
+       assertSame("Ela", imie);
 
 
         WebElement lastName = driver.findElement(By.id("last-name"));
@@ -56,13 +53,8 @@ public class KatalonFormularz {
         }
 
         List<WebElement> genders = driver.findElements(By.name("gender"));
-        //if(genders.listIterator()) {
             genders.get(0).click();
-        //System.out.println(genders.getTagName() + " " + imie);
 
-        //}else{
-          //  fail();
-        //}
 
 
 
@@ -70,41 +62,58 @@ public class KatalonFormularz {
         dateOfBirth.clear();
         dateOfBirth.sendKeys("10/01/2000");
 
+
+
         WebElement address = driver.findElement(By.id("address"));
-        if (dateOfBirth.isEnabled()){
-            address.sendKeys("Katowice");
+        String adres = "Katowice";
+        if (address.isEnabled()){
+            address.sendKeys(adres);
+          System.out.println(address.getTagName() + " address: " + adres);
         }else{
             fail();
         }
 
+
         WebElement email = driver.findElement(By.id("email"));
+        String mail = "e.b.2@poczta.fm";
         if (email.isEnabled()) {
-            email.sendKeys("e.b.2@poczta.fm");
+            email.sendKeys(mail);
+            System.out.println(email.getTagName() + " email: " + mail);
         }else{
             fail();
         }
+
 
 
         WebElement password = driver.findElement(By.id("password"));
+        String haslo = "12345";
         if(password.isEnabled()) {
-            password.sendKeys("12345");
+            password.sendKeys(haslo);
+            System.out.println(password.getTagName() + " password: " + password);
         } else{
             fail();
         }
+
 
         WebElement company = driver.findElement(By.id("company"));
+       String firma = "Milimex";
         if(company.isEnabled()) {
-            company.sendKeys("Milimex");
+            company.sendKeys(firma);
+            System.out.println(company.getTagName() + " Company: " + firma);
         } else{
             fail();
         }
 
+
         WebElement comment = driver.findElement(By.id("comment"));
+        String komentarz = "Pierwszy test";
         if(comment.isEnabled()) {
-            comment.sendKeys("Pierwszy test");
+            comment.sendKeys(komentarz);
+            System.out.println(comment.getTagName() + " Comment: " + comment);
         }else{
             fail();
         }
+
 
         WebElement submitButtom = driver.findElement(By.id("submit"));
         if(submitButtom.isEnabled()) {
@@ -112,15 +121,6 @@ public class KatalonFormularz {
         }else {
             fail();
         }
-
-        WebElement element = driver.findElement(By.id("first-name"));
-        System.out.println(element.getText());
-
-
-
-        // WebElement lastName = driver.findElement(By.id("last-name"));
-        // lastName.sendKeys("Kowalski");
-
 
 
 
@@ -203,11 +203,11 @@ public class KatalonFormularz {
        */
     }
 
-  //  @After
-    //public void tearDown() {
-      //  driver.quit();
+  @After
+  public void tearDown() {
+      driver.quit();
 
-    //}
+    }
 }
 
 

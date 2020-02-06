@@ -1,4 +1,4 @@
-package przykład1;
+package PierwszyTest;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
@@ -40,7 +40,7 @@ public class SearchTest {
         element.submit();
     }
     @After
-    public void tearDown() throws Exception {
+    public void tearDown()  {
         // Zamknij przeglądarkę
         driver.quit();
     }

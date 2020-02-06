@@ -1,4 +1,4 @@
-package przyklad4;
+package ZadanieMyStroy;
 
         import org.junit.After;
         import org.junit.Before;
@@ -57,7 +57,7 @@ public class Mystore {
 
     }
     @After
-    public void tearDown() throws Exception {
+    public void tearDown()  {
         // Zamknij przeglądarkę
        // driver.quit();
     }
